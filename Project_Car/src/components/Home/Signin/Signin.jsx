@@ -17,7 +17,6 @@ export default function Signin() {
 
   const handleSignin = async (values) => {
     await signInAPI(values);
-
   };
   const handleError = (errors) => {
     console.log(errors);
@@ -36,8 +35,9 @@ export default function Signin() {
         <h1 className="text-center">Signin</h1>
         <form onSubmit={handleSubmit(handleSignin, handleError)}>
           <div>
-            <label>Tài khoản</label>
-            <input className="form-control rounded-0"
+            <label className="fs-6 fw-bold">Tài khoản</label>
+            <input
+              className="form-control rounded-0"
               {...register("taiKhoan", {
                 required: {
                   value: true,
@@ -45,11 +45,16 @@ export default function Signin() {
                 },
               })}
             />
-            {errors.taiKhoan && <span>{errors.taiKhoan.message}</span>}
+            {errors.taiKhoan && (
+              <span style={{ fontSize: "16px", fontWeight: "bold", color: "red" }}>
+                {errors.taiKhoan.message}
+              </span>
+            )}
           </div>
           <div>
-            <label>Mật khẩu</label>
-            <input className="form-control rounded-0"
+            <label className="fs-6 fw-bold">Mật khẩu</label>
+            <input
+              className="form-control rounded-0"
               type="password"
               {...register("matKhau", {
                 required: { value: true, message: "Mật khẩu không được để trống" },
@@ -60,7 +65,11 @@ export default function Signin() {
                 },
               })}
             />
-            {errors.matKhau && <span>{errors.matKhau.message}</span>}
+            {errors.matKhau && (
+              <span style={{ fontSize: "16px", fontWeight: "bold", color: "red" }}>
+                {errors.matKhau.message}
+              </span>
+            )}
           </div>
           <button className="btn btn-success mt-3">Đăng Nhập</button>
         </form>

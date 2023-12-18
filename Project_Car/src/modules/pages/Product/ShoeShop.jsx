@@ -1,6 +1,4 @@
 import React, { useEffect, useRef } from "react";
-// import product from "../../../apis/product";
-// import data from "./data.json";
 import ProductList from "./ProductList";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -8,7 +6,6 @@ import Cart from "./Cart";
 import ProductDetail from "./ProductDetail";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import useCarApi from "../../../components/Admin/apis/useCarAPI";
 import axios from "axios";
 
 export default function ShoeShop() {
@@ -30,13 +27,13 @@ export default function ShoeShop() {
   }, 0);
 
   // hàm thêm sản phẩm vào Cart
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (products) => {
     // kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
-    const found = carts.find((item) => item.id === product.id);
+    const found = carts.find((item) => item.id === products.id);
     if (found) {
       // Sản phẩm đã tồn tại trong giỏ hàng
       const newCarts = carts.map((item) => {
-        if (item.id === product.id) {
+        if (item.id === products.id) {
           return { ...item, soLuong: item.soLuong + 1 };
         }
         return item;
@@ -45,10 +42,13 @@ export default function ShoeShop() {
       setCarts(newCarts);
     } else {
       // sản phẩm chưa tồn tại trong giỏ hàng
-      const productWithQuantiTy = { ...product, soLuong: 1 };
+      const productWithQuantiTy = { ...products, soLuong: 1 };
       setCarts([...carts, productWithQuantiTy]);
     }
-    console.log(carts);
+    setCarts((newCarts) => {
+      console.log(newCarts);
+      return newCarts;
+    });
   };
 
   // hàm xóa sản phẩm
@@ -73,7 +73,6 @@ export default function ShoeShop() {
   };
 
   const [posts, setPosts] = useState([]);
-  // const [selectedItem, setSelectedItem] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [filteredPosts, setFilteredPosts] = useState([]);
   // đóng giỏ hàng
@@ -134,16 +133,15 @@ export default function ShoeShop() {
             onChange={handleSearchChange}
           />
           {/* Hiển thị danh sách bài viết đã lọc */}
-          {/* setPosts={posts} */}
-          {filteredPosts.map((posts) => (
-            <div key={posts.id}>
-              <h3>{posts.name}</h3>
-              <p>Price: {posts.price}</p>
-              <p>Description: {posts.description}</p>
-              <p>Short Description: {posts.shortDescription}</p>
-              <p>Quantity: {posts.quantity}</p>
-              <img src={posts.image} alt={posts.name} />
-              <p>Hieuxe: {posts.hieuxe}</p>
+          {filteredPosts.map((filteredPost) => (
+            <div key={filteredPost.id}>
+              <h3>{filteredPost.name}</h3>
+              <p>Price: {filteredPost.price}</p>
+              <p>Description: {filteredPost.description}</p>
+              <p>Short Description: {filteredPost.shortDescription}</p>
+              <p>Quantity: {filteredPost.quantity}</p>
+              <img src={filteredPost.image} alt={filteredPost.name} />
+              <p>Hieuxe: {filteredPost.hieuxe}</p>
             </div>
           ))}
         </div>
@@ -164,7 +162,6 @@ export default function ShoeShop() {
             onHandleChangeQuantityFromCart={handleChangeQuantityFromCart}
             carts={carts}
             onCloseCart={handleCloseCart}
-            // onOpenForm={handleOpenForm}
             onDeleteProductFromCart={handleDeleteProductFromCart}
           />
         )}

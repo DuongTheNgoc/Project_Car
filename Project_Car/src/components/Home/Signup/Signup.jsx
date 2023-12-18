@@ -65,39 +65,61 @@ export default function Signup() {
 
         <form noValidate onSubmit={handleSubmit(handleSignup)}>
           <div>
-            <label>Tài Khoản</label>
+            <label className="fs-6 fw-bold">Tài Khoản</label>
             <input className="form-control rounded-0" {...register("taiKhoan")} />
-            {errors.taiKhoan && <span>{errors.taiKhoan.message}</span>}
+            {errors.taiKhoan && (
+              <span style={{ fontSize: "16px", fontWeight: "bold", color: "red" }}>
+                {errors.taiKhoan.message}
+              </span>
+            )}
           </div>
 
           <div>
-            <label>Mật Khẩu</label>
+            <label className="fs-6 fw-bold">Mật Khẩu</label>
 
             <input className="form-control rounded-0" type="password" {...register("matKhau")} />
-            {errors.matKhau && <span>{errors.matKhau.message}</span>}
+            {errors.matKhau && (
+              <span style={{ fontSize: "16px", fontWeight: "bold", color: "red" }}>
+                {errors.matKhau.message}
+              </span>
+            )}
           </div>
 
           <div>
-            <label>Email</label>
+            <label className="fs-6 fw-bold">Email</label>
             <input className="form-control rounded-0" type="email" {...register("email")} />
-            {errors.email && <span>{errors.email.message}</span>}
+            {errors.email && (
+              <span style={{ fontSize: "16px", fontWeight: "bold", color: "red" }}>
+                {errors.email.message}
+              </span>
+            )}
           </div>
 
           <div>
-            <label>Họ Tên</label>
+            <label className="fs-6 fw-bold">Họ Tên</label>
             <input className="form-control rounded-0" {...register("hoTen")} />
-            {errors.hoTen && <span>{errors.hoTen.message}</span>}
+            {errors.hoTen && (
+              <span style={{ fontSize: "16px", fontWeight: "bold", color: "red" }}>
+                {errors.hoTen.message}
+              </span>
+            )}
           </div>
 
           <div>
-            <label>Số Điện Thoại</label>
+            <label className="fs-6 fw-bold">Số Điện Thoại</label>
             <input className="form-control rounded-0" {...register("soDt")} />
-            {errors.soDt && <span>{errors.soDt.message}</span>}
+            {errors.soDt && (
+              <span style={{ fontSize: "16px", fontWeight: "bold", color: "red" }}>
+                {errors.soDt.message}
+              </span>
+            )}
           </div>
 
           {error && <p>{error}</p>}
 
-          <button className="btn btn-success mt-3" disabled={isLoading}>Đăng Ký</button>
+          <button className="btn btn-success mt-3" disabled={isLoading}>
+            Đăng Ký
+          </button>
         </form>
       </div>
     </div>

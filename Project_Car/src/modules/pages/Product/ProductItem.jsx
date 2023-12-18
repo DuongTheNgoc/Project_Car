@@ -1,10 +1,12 @@
 import React from "react";
+import ProductFulltem from "./ProductFulltem";
 
 export default function ProductItem({ product, onAddToCart, onSetIsOpenDetail, onGetProduct }) {
   const handleOpenAndShow = (product) => {
     onSetIsOpenDetail();
     onGetProduct(product);
   };
+
   return (
     <div className="card mb-5">
       <img className="card-img width={100%}" alt="" src={product.image}></img>
@@ -29,6 +31,7 @@ export default function ProductItem({ product, onAddToCart, onSetIsOpenDetail, o
         </button>
         <button className="btn btn-dark mt-2 ms-1">
           <i class="fa fa-circle-info"></i>XEM CHI TIẾT XE
+          {/* <ProductFulltem /> */}
         </button>
       </div>
     </div>
