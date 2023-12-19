@@ -133,6 +133,7 @@ export default function ShoeShop() {
             onChange={handleSearchChange}
           />
           {/* Hiển thị danh sách bài viết đã lọc */}
+
           {filteredPosts.map((filteredPost) => (
             <div key={filteredPost.id}>
               <h3>{filteredPost.name}</h3>

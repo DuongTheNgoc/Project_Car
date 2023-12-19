@@ -1,6 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { signInAPI } from "../../../apis/user";
+import { useSelector, useDispatch } from "react-redux";
+import { signin } from "../../../modules/Auth/slices/authSlices";
+import { Navigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export default function Signin() {
   const {
@@ -15,12 +19,26 @@ export default function Signin() {
     mode: "onSubmit",
   });
 
+  const { currentUser, isLoading, error } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+
   const handleSignin = async (values) => {
-    await signInAPI(values);
+    try {
+      await dispatch(signin(values)).unwrap();
+      toast.success("Đăng nhập thành công");
+    } catch (error) {
+      toast.error("Đăng nhập thất bại");
+    }
   };
   const handleError = (errors) => {
-    console.log(errors);
+    toast.error("Đăng nhập thất bại");
   };
+
+  if (currentUser) {
+    // nếu có thông tin đăng nhập => chuyển hướng về user bẳng component Navigate(nó chuyển hướng ngay luôn không cần tác động)
+    return <Navigate to="/" />;
+  }
 
   return (
     <div
@@ -71,7 +89,10 @@ export default function Signin() {
               </span>
             )}
           </div>
-          <button className="btn btn-success mt-3">Đăng Nhập</button>
+          {error && <p>{error}</p>}
+          <button className="btn btn-success mt-3" disabled={isLoading}>
+            Đăng Nhập
+          </button>
         </form>
       </div>
     </div>
