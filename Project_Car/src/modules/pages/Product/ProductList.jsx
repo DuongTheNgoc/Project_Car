@@ -1,7 +1,6 @@
 import React from "react";
 import ProductItem from "./ProductItem";
 
-
 export default function ProductList({ products, onAddToCart, onSetIsOpenDetail, onGetProduct }) {
   return (
     <div className="row">

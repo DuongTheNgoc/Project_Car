@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import { object, string } from "yup";
 import { signupAPI } from "../../../apis/user";
+import toast, { Toaster } from "react-hot-toast";
 
 const validationSchema = object({
   taiKhoan: string().required("Tài khoản không được để trống"),
@@ -42,7 +43,12 @@ export default function Signup() {
     try {
       setIsLoading(true);
       setError(null);
-      await signupAPI(values);
+      try {
+        await signupAPI(values);
+        toast.success("Đăng ký thành công");
+      } catch (error) {
+        toast.error("Đăng ký thất bại");
+      }
       navigate("/sign-in");
     } catch (error) {
       setError(error);
@@ -121,6 +127,7 @@ export default function Signup() {
             Đăng Ký
           </button>
         </form>
+        <Toaster position="top-center" />
       </div>
     </div>
   );

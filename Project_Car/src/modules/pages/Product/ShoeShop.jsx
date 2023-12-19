@@ -127,6 +127,7 @@ export default function ShoeShop() {
       <div className="container ">
         <div>
           <input
+            className="mt-5 ps-5"
             type="text"
             placeholder="Search by hieuxe"
             value={searchValue}

@@ -1,61 +1,51 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-export default function ProductFulltem() {
-  const [products, setProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const handleProductClick = (product) => {
-    setSelectedProduct(product);
-  };
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("https://65743d90f941bda3f2af8183.mockapi.io/api/qlxe/cars");
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+// import React, { useEffect, useState } from "react";
 
-    fetchData();
-  }, []);
+// export default function ProductFulltem({ match }) {
+//   const [product, setProduct] = useState(null);
 
-  return (
-    <div>
-      {selectedProduct ? (
-        <div className="card bg-light" style={{ width: 300 }}>
-          <img
-            className="card-img-top"
-            src={selectedProduct.image}
-            alt="Card image"
-            style={{ maxWidth: "100%", height: 250 }}
-          />
-          <div className="card-body text-center">
-            <h4 className="card-title text-center">{selectedProduct.name}</h4>
-            <p className="card-text">{selectedProduct.description}</p>
-          </div>
-        </div>
-      ) : (
-        products.map((product) => (
-          <div
-            key={product.id}
-            className="card bg-light"
-            style={{ width: 300 }}
-            onClick={() => handleProductClick(product)}
-          >
-            <img
-              className="card-img-top"
-              src={product.image}
-              alt="Card image"
-              style={{ maxWidth: "100%", height: 250 }}
-            />
-            <div className="card-body text-center">
-              <h4 className="card-title text-center">{product.name}</h4>
-              <p className="card-text">{product.description}</p>
-            </div>
-          </div>
-        ))
-      )}
-    </div>
-  );
-}
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const response = await fetch(
+//           `https://65743d90f941bda3f2af8183.mockapi.io/api/qlxe/cars/${match.params.id}`
+//         );
+//         const data = await response.json();
+//         setProduct(data);
+//       } catch (error) {
+//         console.error(error);
+//       }
+//     };
+
+//     fetchData();
+//   }, [match.params.id]);
+
+//   return (
+//     <div>
+//       {product ? (
+//         <div className="row">
+//           <div className="col-4">
+//             <h3>{product.name}</h3>
+//             <img src={product.img} alt={product.name} height={400} />
+//           </div>
+//           <div className="col-8">
+//             <h3>Thông tin xe</h3>
+//             <table className="table">
+//               <tbody>
+//                 <tr>
+//                   <td>Thông tin xe</td>
+//                   <td>{product.name}</td>
+//                 </tr>
+//                 <tr>
+//                   <td>Hệ điều hành</td>
+//                   <td>{product.description}</td>
+//                 </tr>
+//               </tbody>
+//             </table>
+//           </div>
+//         </div>
+//       ) : (
+//         <p>Loading...</p>
+//       )}
+//     </div>
+//   );
+// }

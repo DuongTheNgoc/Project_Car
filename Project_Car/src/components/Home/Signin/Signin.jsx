@@ -1,10 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { signInAPI } from "../../../apis/user";
 import { useSelector, useDispatch } from "react-redux";
 import { signin } from "../../../modules/Auth/slices/authSlices";
 import { Navigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Signin() {
   const {
@@ -94,6 +93,7 @@ export default function Signin() {
             Đăng Nhập
           </button>
         </form>
+        <Toaster position="top-center" />
       </div>
     </div>
   );
