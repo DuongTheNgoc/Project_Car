@@ -11,7 +11,7 @@ import LayoutCar from "./components/Admin/components/Cars/LayoutCar";
 import BusTicket from "./modules/Auth/busTicket/BusTicket";
 import Signin from "./components/Home/Signin/Signin";
 import Signup from "./components/Home/Signup/Signup";
-import ProductFulltem from "./modules/pages/Product/ProductFulltem";
+
 import Video from "./modules/pages/Product/Video";
 function App() {
   return (
@@ -26,7 +26,6 @@ function App() {
         <Route exact path="/about" element={<About />}></Route>
         <Route exact path="/contact" element={<Contact />}></Route>
         <Route exact path="/tracuu" element={<ShoeShop />}></Route>
-
         <Route exact path="/adminUser" element={<Layout />}></Route>
         <Route exact path="/adminCar" element={<LayoutCar />}></Route>
         <Route exact path="/busTicket" element={<BusTicket />}></Route>

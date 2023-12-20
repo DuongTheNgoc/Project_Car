@@ -108,7 +108,7 @@ export default function ProductItem({ product, onAddToCart, onSetIsOpenDetail, o
                 <Form.Label>Số điện thoại</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Nhập sốđiện thoại"
+                  placeholder="Nhập số điện thoại"
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                 />

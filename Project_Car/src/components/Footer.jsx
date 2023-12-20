@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="container">
             <div className="footer_copyright_content">
               <div className="footer_copyright_left">
-                Copyright © 2021 <span>Travel</span> . Around the world.
+                Copyright © 2023 <span>Travel</span> . Around the world.
               </div>
               <div className="footer_copyright_right">
                 <a href="#">

@@ -107,14 +107,15 @@ export default function ShoeShop() {
   }, []);
 
   useEffect(() => {
-    // Tìm kiếm dựa trên trường "hieuxe"
-    const filteredPosts = posts.filter((post) =>
-      post.hieuxe.toLowerCase().includes(searchValue.toLowerCase())
-    );
-
-    // Cập nhật danh sách bài viết đã lọc
-    // Đây là nơi bạn có thể lưu danh sách bài viết đã lọc để hiển thị trong giao diện người dùng
-    console.log(filteredPosts);
+    if (searchValue && posts) {
+      const filteredPosts = posts.filter((post) =>
+        post.hieuxe.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setFilteredPosts(filteredPosts);
+      console.log(filteredPosts);
+    } else {
+      setFilteredPosts([]);
+    }
   }, [searchValue, posts]);
 
   const handleSearchChange = (event) => {
@@ -138,7 +139,7 @@ export default function ShoeShop() {
           {filteredPosts.map((filteredPost) => (
             <div key={filteredPost.id}>
               <h3>{filteredPost.name}</h3>
-              <p>Price: {filteredPost.price}</p>
+              <p>Prepay: {filteredPost.price} VNĐ</p>
               <p>Description: {filteredPost.description}</p>
               <p>Short Description: {filteredPost.shortDescription}</p>
               <p>Quantity: {filteredPost.quantity}</p>
