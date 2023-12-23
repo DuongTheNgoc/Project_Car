@@ -13,6 +13,7 @@ import Signin from "./components/Home/Signin/Signin";
 import Signup from "./components/Home/Signup/Signup";
 
 import Video from "./modules/pages/Product/Video";
+import NotFound from "./components/Not Found";
 function App() {
   return (
     <BrowserRouter>
@@ -30,6 +31,7 @@ function App() {
         <Route exact path="/adminCar" element={<LayoutCar />}></Route>
         <Route exact path="/busTicket" element={<BusTicket />}></Route>
         <Route exact path="/detail" element={<Video />}></Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

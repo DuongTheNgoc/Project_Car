@@ -127,13 +127,31 @@ export default function ShoeShop() {
       <Header />
       <div className="container ">
         <div>
-          <input
-            className="mt-5 ps-5"
-            type="text"
-            placeholder="Search by hieuxe"
-            value={searchValue}
-            onChange={handleSearchChange}
-          />
+          <div className="row mb-3">
+            <div className="col">
+              <div className="input-group">
+                <input
+                  className="form-control mt-5 ps-5"
+                  type="text"
+                  placeholder="Search by hieuxe"
+                  value={searchValue}
+                  onChange={handleSearchChange}
+                />
+                <div className="input-group-prepend">
+                  <span className="input-group-text mt-5 pt-3">
+                    <i className="fa fa-search" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* <div className="input-group-prepend">
+            <span className="input-group-text">
+              <i className="fa fa-search" />
+            </span>
+          </div> */}
+          {/* <i class="fa fa-search"></i>
           {/* Hiển thị danh sách bài viết đã lọc */}
 
           {filteredPosts.map((filteredPost) => (
