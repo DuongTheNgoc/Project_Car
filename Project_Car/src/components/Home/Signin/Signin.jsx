@@ -17,7 +17,6 @@ export default function Signin() {
     },
     mode: "onSubmit",
   });
-
   const { currentUser, isLoading, error } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
@@ -38,7 +37,6 @@ export default function Signin() {
     // nếu có thông tin đăng nhập => chuyển hướng về user bẳng component Navigate(nó chuyển hướng ngay luôn không cần tác động)
     return <Navigate to="/" />;
   }
-
   return (
     <div
       className="d-flex justify-content-center align-items-center bg-primary vh-100"

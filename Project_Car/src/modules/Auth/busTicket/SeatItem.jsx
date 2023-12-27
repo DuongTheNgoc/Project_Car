@@ -1,29 +1,36 @@
-import React from "react";
+// import { useState } from "react";
 import cn from "classnames";
-import { useDispatch } from "react-redux";
-import { selectSeat } from "../redux/slices/busTicketSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function SeatItem({ seat, isSelected }) {
   const dispatch = useDispatch();
 
   const handleSelect = () => {
-    // dispatch({
-    //   type: "busTicket/selectSeat",
-    //   payload: { ...seat, isSelected: !isSelected },
-    // });
-
-    dispatch(selectSeat({ ...seat, isSelected: !isSelected }));
+    dispatch({
+      type: "busTicket/selectSeat",
+      payload: { ...seat, isSelected: !isSelected },
+    });
   };
 
   return (
     <button
+      key={seat.name}
       className={cn("btn m-2", {
-        "btn-danger": seat.isBooked,
+        "btn-danger": seat.booked,
         "btn-success": isSelected,
-        "btn-secondary": !seat.isBooked && !isSelected,
+        "btn-outline-warning": !seat.booked && !isSelected,
       })}
-      disabled={seat.isBooked}
+      disabled={seat.booked}
       onClick={handleSelect}
+      style={{
+        width: "45px",
+        height: "45px",
+        fontSize: "20px",
+        color: "black",
+        textAlign: "center",
+        fontWeight: "bold",
+        padding: "10px",
+      }}
     >
       {seat.name}
     </button>

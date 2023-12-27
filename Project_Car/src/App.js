@@ -1,6 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
-import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./components/layout/Main";
 import Home from "./components/Home";
 import About from "./modules/pages/About/About";
@@ -11,9 +11,8 @@ import LayoutCar from "./components/Admin/components/Cars/LayoutCar";
 import BusTicket from "./modules/Auth/busTicket/BusTicket";
 import Signin from "./components/Home/Signin/Signin";
 import Signup from "./components/Home/Signup/Signup";
-
-import Video from "./modules/pages/Product/Video";
 import NotFound from "./components/Not Found";
+
 function App() {
   return (
     <BrowserRouter>
@@ -30,7 +29,7 @@ function App() {
         <Route exact path="/adminUser" element={<Layout />}></Route>
         <Route exact path="/adminCar" element={<LayoutCar />}></Route>
         <Route exact path="/busTicket" element={<BusTicket />}></Route>
-        <Route exact path="/detail" element={<Video />}></Route>
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

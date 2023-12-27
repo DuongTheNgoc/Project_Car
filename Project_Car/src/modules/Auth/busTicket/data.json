@@ -1,218 +1,100 @@
 [
   {
-    "id": 1,
-    "name": "Ghế A1",
-    "price": 10,
-    "isBooked": false
+    "row": "A",
+    "seats": [
+      { "name": "A1", "price": 550000, "booked": false },
+      { "name": "A2", "price": 550000, "booked": true },
+      { "name": "A3", "price": 550000, "booked": true },
+      { "name": "A4", "price": 550000, "booked": false },
+      { "name": "A5", "price": 550000, "booked": false }
+     
+    ]
   },
   {
-    "id": 2,
-    "name": "Ghế A2",
-    "price": 10,
-    "isBooked": false
+    "row": "B",
+    "seats": [
+      { "name": "B1", "price": 500000, "booked": true },
+      { "name": "B2", "price": 500000, "booked": false },
+      { "name": "B3", "price": 500000, "booked": true },
+      { "name": "B4", "price": 500000, "booked": false },
+      { "name": "B5", "price": 500000, "booked": false }
+     
+    ]
   },
   {
-    "id": 3,
-    "name": "Ghế A3",
-    "price": 10,
-    "isBooked": false
+    "row": "C",
+    "seats": [
+      { "name": "C1", "price": 450000, "booked": false },
+      { "name": "C2", "price": 450000, "booked": false },
+      { "name": "C3", "price": 450000, "booked": false },
+      { "name": "C4", "price": 450000, "booked": false },
+      { "name": "C5", "price": 450000, "booked": false }
+      
+    ]
   },
   {
-    "id": 4,
-    "name": "Ghế A4",
-    "price": 10,
-    "isBooked": false
+    "row": "D",
+    "seats": [
+      { "name": "D1", "price": 400000, "booked": false },
+      { "name": "D2", "price": 400000, "booked": false },
+      { "name": "D3", "price": 400000, "booked": false },
+      { "name": "D4", "price": 400000, "booked": false },
+      { "name": "D5", "price": 400000, "booked": false }
+    ]
   },
   {
-    "id": 5,
-    "name": "Ghế A5",
-    "price": 10,
-    "isBooked": false
+    "row": "E",
+    "seats": [
+      { "name": "E1", "price": 400000, "booked": false },
+      { "name": "E2", "price": 400000, "booked": false },
+      { "name": "E3", "price": 400000, "booked": false },
+      { "name": "E4", "price": 400000, "booked": false },
+      { "name": "E5", "price": 400000, "booked": false }
+     
+    ]
   },
   {
-    "id": 6,
-    "name": "Ghế A6",
-    "price": 10,
-    "isBooked": false
+    "row": "F",
+    "seats": [
+      { "name": "F1", "price": 400000, "booked": false },
+      { "name": "F2", "price": 400000, "booked": false },
+      { "name": "F3", "price": 400000, "booked": false },
+      { "name": "F4", "price": 400000, "booked": false },
+      { "name": "F5", "price": 400000, "booked": false }
+    ]
   },
   {
-    "id": 7,
-    "name": "Ghế A7",
-    "price": 10,
-    "isBooked": false
+    "row": "G",
+    "seats": [
+      { "name": "G1", "price": 400000, "booked": false },
+      { "name": "G2", "price": 400000, "booked": false },
+      { "name": "G3", "price": 400000, "booked": false },
+      { "name": "G4", "price": 400000, "booked": false },
+      { "name": "G5", "price": 400000, "booked": false }
+    
+    ]
   },
   {
-    "id": 8,
-    "name": "Ghế A8",
-    "price": 10,
-    "isBooked": false
+    "row": "H",
+    "seats": [
+      { "name": "H1", "price": 400000, "booked": false },
+      { "name": "H2", "price": 400000, "booked": false },
+      { "name": "H3", "price": 400000, "booked": false },
+      { "name": "H4", "price": 400000, "booked": false },
+      { "name": "H5", "price": 400000, "booked": false }
+  
+    ]
   },
   {
-    "id": 9,
-    "name": "Ghế A9",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 10,
-    "name": "Ghế A10",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 11,
-    "name": "Ghế A11",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 12,
-    "name": "Ghế A12",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 13,
-    "name": "Ghế A13",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 14,
-    "name": "Ghế A14",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 15,
-    "name": "Ghế A15",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 16,
-    "name": "Ghế A16",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 17,
-    "name": "Ghế A17",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 18,
-    "name": "Ghế A18",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 19,
-    "name": "Ghế A19",
-    "price": 10,
-    "isBooked": true
-  },
-  {
-    "id": 20,
-    "name": "Ghế A20",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 21,
-    "name": "Ghế A21",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 22,
-    "name": "Ghế A22",
-    "price": 10,
-    "isBooked": true
-  },
-  {
-    "id": 23,
-    "name": "Ghế A23",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 24,
-    "name": "Ghế A24",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 25,
-    "name": "Ghế A25",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 26,
-    "name": "Ghế A26",
-    "price": 10,
-    "isBooked": true
-  },
-  {
-    "id": 27,
-    "name": "Ghế A27",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 28,
-    "name": "Ghế A28",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 29,
-    "name": "Ghế A29",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 30,
-    "name": "Ghế A30",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 31,
-    "name": "Ghế A31",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 32,
-    "name": "Ghế A32",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 33,
-    "name": "Ghế A33",
-    "price": 10,
-    "isBooked": true
-  },
-  {
-    "id": 34,
-    "name": "Ghế A34",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 35,
-    "name": "Ghế A35",
-    "price": 10,
-    "isBooked": false
-  },
-  {
-    "id": 36,
-    "name": "Ghế A36",
-    "price": 10,
-    "isBooked": false
+    "row": "I",
+    "seats": [
+      { "name": "I1", "price": 400000, "booked": false },
+      { "name": "I2", "price": 400000, "booked": false },
+      { "name": "I3", "price": 400000, "booked": false },
+      { "name": "I4", "price": 400000, "booked": false },
+      { "name": "I5", "price": 400000, "booked": false }
+    
+    ]
   }
+
 ]

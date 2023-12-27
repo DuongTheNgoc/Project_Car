@@ -1,28 +1,28 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import SeatItem from "./SeatItem";
+import SeatRow from "./SeatRow";
 
-export default function SeatList({ seats }) {
-  // Danh sách những ghế đang được chọn
-  const selectedSeats = useSelector((state) => {
-    return state.busTicket.selectedSeats;
-  });
+const colNumbers = [1, 2, 3, 4, 5];
 
+export default function SeatList({ dataRows }) {
   return (
-    <div className="row">
-      <div className="col-12 bg-secondary p-2 text-center text-white">Tài xế</div>
-
-      {seats.map((seat) => {
-        // Kiểm tra xem ghế hiện tại có đang được chọn hay không
-        // found = {...} | undefined
-        const found = selectedSeats.find((item) => item.id === seat.id);
-
-        return (
-          <div key={seat.id} className="col-3">
-            <SeatItem seat={seat} isSelected={!!found} />
-          </div>
-        );
+    <>
+      <div style={{ paddingLeft: "35%" }}>
+        {colNumbers.map((number, index) => (
+          <button
+            key={index}
+            className="btn btn-outline-none text-warning fw-bold text-center fs-4 m-2 p-0"
+            style={{
+              width: "45px",
+              height: "45px",
+            }}
+          >
+            {number}
+          </button>
+        ))}
+      </div>
+      {dataRows.map((dataRow, index) => {
+        return <SeatRow key={index} dataRow={dataRow} />;
       })}
-    </div>
+    </>
   );
 }
