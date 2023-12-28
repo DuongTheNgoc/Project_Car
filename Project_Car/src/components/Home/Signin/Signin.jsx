@@ -1,8 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useSelector, useDispatch } from "react-redux";
 import { signin } from "../../../modules/Auth/slices/authSlices";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Signin() {
@@ -17,26 +16,53 @@ export default function Signin() {
     },
     mode: "onSubmit",
   });
-  const { currentUser, isLoading, error } = useSelector((state) => state.auth);
 
-  const dispatch = useDispatch();
+  // const { currentUser, isLoading, error } = useSelector((state) => state.auth);
 
-  const handleSignin = async (values) => {
-    try {
-      await dispatch(signin(values)).unwrap();
-      toast.success("Đăng nhập thành công");
-    } catch (error) {
-      toast.error("Đăng nhập thất bại");
-    }
+  // const dispatch = useDispatch();
+
+  // const handleSignin = async (values) => {
+  //   try {
+  //     await dispatch(signin(values)).unwrap();
+  //     toast.success("Đăng nhập thành công");
+  //   } catch (error) {
+  //     toast.error("Đăng nhập thất bại");
+  //   }
+  // };
+
+  const [searchParams] = useSearchParams();
+
+  const navigate = useNavigate();
+
+  // const { currentUser, handleSignin: onSigninSuccess } = useUserContext();
+  const {
+    mutate: handleSignin,
+    isLoading,
+    error,
+  } = {
+    mutationFn: (payload) => signin(payload),
+    onSuccess: (data) => {
+      // key data là dữ liệu api trả về
+      console.log("data đã đăng nhập", data); //FROM API
+      localStorage.setItem("currentUser", JSON.stringify(data));
+      // onSigninSuccess(data);
+    },
   };
+
+  const onSubmit = (values) => {
+    console.log(values);
+    handleSignin(values);
+  };
+
   const handleError = (errors) => {
     toast.error("Đăng nhập thất bại");
   };
 
-  if (currentUser) {
-    // nếu có thông tin đăng nhập => chuyển hướng về user bẳng component Navigate(nó chuyển hướng ngay luôn không cần tác động)
-    return <Navigate to="/" />;
-  }
+  // if (currentUser) {
+  //   // nếu có thông tin đăng nhập => chuyển hướng về user bẳng component Navigate(nó chuyển hướng ngay luôn không cần tác động)
+  //   return <Navigate to="/" />;
+  // }
+
   return (
     <div
       className="d-flex justify-content-center align-items-center bg-primary vh-100"
